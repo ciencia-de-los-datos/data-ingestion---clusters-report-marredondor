@@ -39,5 +39,8 @@ def ingest_data():
     df['cantidad_de_palabras_clave'] = df['cantidad_de_palabras_clave'].astype(int) 
     df['porcentaje_de_palabras_clave'] = df['porcentaje_de_palabras_clave'].astype(float)
     df = df.groupby(['cluster','cantidad_de_palabras_clave','porcentaje_de_palabras_clave'])['principales_palabras_clave'].apply(' '.join).reset_index()
+    
+    for name in df.columns:
+    df[name] = df[name].apply(lambda value:" ".join(str(value).strip().split()))
 
     return df
