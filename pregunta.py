@@ -14,7 +14,7 @@ import pandas as pd
 
 def ingest_data():
     
-    df = pd.read_fwf(ruta + 'clusters_report.txt', 
+    df = pd.read_fwf('clusters_report.txt', 
                              widths=[7,16,16,80], 
                              names =['Cluster', 'Cantidad de palabras clave', 'Porcentaje de palabras clave', 'Principales palabras clave'], 
                              skiprows = [0,1,2,3],
