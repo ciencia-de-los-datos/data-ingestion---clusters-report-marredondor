@@ -44,7 +44,6 @@ def ingest_data():
     df['cluster'] = df['cluster'].astype(int) 
     df['cantidad_de_palabras_clave'] = df['cantidad_de_palabras_clave'].astype(int) 
     df['porcentaje_de_palabras_clave'] = df['porcentaje_de_palabras_clave'].astype(float)
-
     df = df.groupby(['cluster','cantidad_de_palabras_clave','porcentaje_de_palabras_clave'])['principales_palabras_clave'].apply(' '.join).reset_index()
 
     for index, element in enumerate (df['principales_palabras_clave']):
